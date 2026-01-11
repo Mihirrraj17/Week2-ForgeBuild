@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DApp</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      flex-wrap: wrap;
+      max-width: 400px;
+      height: 10vh;
+      box-shadow: 4px;
+      background-color: antiquewhite;
+      padding: 100px;
+      gap: 20px;
+      border-radius: 20px;
+    }
+    button {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    input {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    
+  </style>
+  <body>
+    <div class="container">
+      <button onclick="connect()" class="connect">Connect</button>
+      <input id="amount" placeholder="Enter the amount(ETH).." />
+      <button onclick="calldeposit()">Deposit</button>
+      <input id="input" placeholder="Enter the address.." />
+      <button onclick="callMapping()">Amount</button>
+      <script src="dist/bundle.js"></script>
+      <button onclick="callBalance()">Balance</button>
+    </div>
+  </body>
+</html>
