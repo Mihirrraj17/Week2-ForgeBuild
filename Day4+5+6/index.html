@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DApp</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+    }
+    .container {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      flex-wrap: wrap;
+      max-width: 30vh;
+      height: 10vh;
+      box-shadow: 4px;
+      background-color: antiquewhite;
+      padding: 100px;
+      padding-top: 50px;
+      padding-bottom: 120px;
+      gap: 20px;
+      border-radius: 20px;
+    }
+    button {
+      padding: 5px;
+      border-radius: 5px;
+      margin:5px;
+    }
+    button.connect{
+      display:flex;
+
+    }
+    input {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    #contractBalance{
+      margin-top:10px;
+      display:flex;
+      gap: 8vh;
+      margin-left:2vh;
+    }
+    .heading{
+      display:flex;
+      margin-bottom: -3vh;
+      gap: 2vh;
+
+    }
+    
+  </style>
+  <body>
+    <div class="container">
+      <button onclick="connect()" class="connect">Connect</button>
+      <input id="amount" placeholder="Enter the amount(ETH).." />
+      <button onclick="calldeposit()">Deposit</button>
+      <input id="input" placeholder="Enter the address.." />
+      <button onclick="callMapping()">Amount</button>
+      <script src="dist/bundle.js"></script>
+      <div class="heading">
+      <br><h5><b>Contract's Balance:</b></h5>
+      <br><h5><b>User's Balance:</b></h5>
+      </div>
+      <div id="contractBalance">
+      <button onclick="callBalance()" class="balance">Balance</button>
+      <button onclick="callBalanceUser()" class="balance">Balance</button></div>
+    </div>
+  </body>
+</html>
