@@ -50,11 +50,11 @@ const abi=[
 	}
 ];
 async function connect(){
-    if(typeof window.ethereum!="undefined"){
-     await  ethereum.request({method:"eth_requestAccounts"});
-    }else{
-       error("Metamask is not installed");
-    }
+	if(typeof window.ethereum!="undefined"){
+	 await  ethereum.request({method:"eth_requestAccounts"});
+	}else{
+	   error("Metamask is not installed");
+	}
 }
 
 async function calldeposit(){
@@ -66,12 +66,12 @@ async function calldeposit(){
   const amountInput= document.getElementById("amount").value;
 
   try{
-    const amount= ethers.utils.parseEther(amountInput);
-    const tx=await contract.deposit({value:amount});
+	const amount= ethers.utils.parseEther(amountInput);
+	const tx=await contract.deposit({value:amount});
 	await tx.wait();
 	alert("Deposit Successful");
   }catch(e){
-    console.error("Check if any error");
+	console.error("Check if metamask is connected");
 	alert("Check if metamask is connected");
   }
 
@@ -100,10 +100,19 @@ async function callBalance(){
 
 }
 
+async function callBalanceUser(){
+	const provider = new ethers.providers.Web3Provider(window.ethereum);
+	const address= await document.getElementById("input").value;
+	const amount=await provider.getBalance(address);
+	const inEth=ethers.utils.formatEther(amount);
+	alert("User Balance: " + inEth + " ETH");
+}
+
 window.connect=connect;
 window.calldeposit=calldeposit;
 window.callMapping=callMapping;
 window.callBalance=callBalance;
+window.callBalanceUser=callBalanceUser;
 },{"ethers":172}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
